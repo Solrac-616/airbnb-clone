@@ -13,7 +13,7 @@ interface ModalProps {
   footer?: React.ReactElement;
   actionLabel: string;
   disable?: boolean;
-  secondaryAction: () => void;
+  secondaryAction?: () => void;
   secondaryLabel?: string;
 }
 
@@ -46,7 +46,7 @@ const Modal: React.FC<ModalProps> =
   }, [disable, onSubmit]);
 
   const handleSecondaryAction = useCallback(() => {
-    if (disable) {
+    if (disable || !secondaryAction) {
       return;
     }
 
@@ -85,7 +85,18 @@ const Modal: React.FC<ModalProps> =
               {/* FOOTER DEL MODAL */}
               <div className="flex flex-col gap-2 p-6">
                 <div className="flex flex-row items-center gap-4 w-full">
-                  <Button label="Boton 1" />
+                  {secondaryAction && secondaryLabel && (
+                    <Button 
+                      disable={disable}
+                      label={secondaryLabel}
+                      onClick={handleSecondaryAction} 
+                    />
+                  )}
+                  <Button 
+                    disable={disable}
+                    label={actionLabel}
+                    onClick={handleSubmit} 
+                  />
                 </div>
               </div>
             </div>
