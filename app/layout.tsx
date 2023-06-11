@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={nunito.className}>
         <ClientOnly>
-          <Modal isOpen/>
+          <Modal title='Login' isOpen/>
           <Navbar />
         </ClientOnly>
         {children}
