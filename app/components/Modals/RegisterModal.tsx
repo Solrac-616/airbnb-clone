@@ -11,7 +11,9 @@ import Heading from "../Heading";
 import Input from "@/app/inputs/input";
 
 const RegisterModal = () => {
+  // TRAER EL ESTADO DEL MODAL
   const registerModal = useRegisterModal();
+  // DECLARAR EL ESTADO DE CARGA
   const [isLoading, setIsLoading] = useState(false);
 
   const {register, handleSubmit, formState:{errors}} = useForm<FieldValues>({
