@@ -12,9 +12,7 @@ const UserMenu = () => {
   const toggleOpen = useCallback(
     () => {
       setIsOpen((value) => !value);
-    },
-    []
-  );
+    },[]);
 
   return ( 
     <div className="relative">
